@@ -1,0 +1,37 @@
+{% load static %}
+<h2 style="font-family: 'Arial', sans-serif; color: #296f92; font-size: 46px; position: relative; left: 20px; top: 20px;margin-bottom: 75px;margin-left: 100px;">
+    News
+</h2>
+<br>
+
+<section style="margin-top: 200px; margin-bottom: 150px;">
+    <div class="container">
+        <div style="position: absolute; width: 100%; height: 90px;">
+            <img src="{% static 'imgs/sqig.png' %}" alt="Decorative squiggle" style="position: absolute; transform: translate(-65%, -310%) rotate(-7deg); width: 1100px; height: 90px;">
+        </div>
+
+        <div class="row">
+            {% for item in newsItems %}
+            <div class="col-md-4">
+                <a href="#" style="text-decoration:none">
+                    <div href="#" class="card shadow-sm">
+                        <!-- Image at the top of the card, moved the inline styles to the CSS -->
+                        <img src="{{ item.image_url.url }}" class="card-img-top" alt="No Image Found">
+                        <!-- Card Body for Title and Summary -->
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.title }}</h5>
+                            {% if item.summary %}
+                            <p class="card-text">{{ item.summary }}</p>
+                            {% else %}
+                            <p class="card-text"><br><br>&nbsp;</p> <!-- This is an empty paragraph with a non-breaking space -->
+                            {% endif %}
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="learn-more-button" style="right: 14%; transform: translate(-10%, 40%); z-index: 2;font-size: 19px;font-weight: 400;">See All News</a>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>

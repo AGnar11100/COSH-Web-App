@@ -1,0 +1,39 @@
+.fa-dollar:before {
+    content: "\f155";
+}
+
+
+.fa-tree:before {
+    content: "\f1bb";
+}
+
+
+.fa-briefcase:before {
+    content: "\f0b1";
+}
+
+
+.fa-map-marker:before {
+    content: "\f041";
+}
+
+
+.fa-shield:before {
+    content: "\f132";
+}
+
+
+.fa-id-card:before {
+    content: "\f2c2";
+}
+
+.social-icons {
+    margin: 10px 0;
+}
+
+.social-icons a {
+    margin: 0 8px;
+    font-size: 20px;
+    color: #296f92;
+    text-decoration: none;
+}

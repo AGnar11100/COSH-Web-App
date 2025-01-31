@@ -1,0 +1,29 @@
+{% load static %}
+<style>
+    .search-container {
+        background-image: url("{% static 'imgs/bigrock.jpg' %}");
+        position: relative;
+        width: 100vw; /* Ensures it spans the full width of the viewport exactly */
+        height: 625px; /* Adjustable based on your preference */
+        display: flex;
+        align-items: center; /* Center the content vertically */
+        justify-content: center; /* Center the content horizontally */
+        overflow: hidden; /* Ensures nothing leaks outside the div */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat; /* This should prevent repeating */
+        margin: 0; /* Removes any default margins */
+        padding: 0; /* Removes any default padding */
+    }
+</style>
+<div class="search-container">
+    <input type="text" placeholder="Search..." class="search-bar">
+        <div class="custom-nav">
+            <button class="nav-btn" style="font-size: 20px;"><i class="fa fa-dollar"></i> Pay Online</button>
+            <button class="nav-btn" style="font-size: 20px;"><i class="fa fa-tree"></i> Parks &<br>Rec</button>
+            <button class="nav-btn" style="font-size: 20px;"><i class="fa fa-briefcase"></i> Jobs</button>
+            <button class="nav-btn" style="font-size: 20px;"><i class="fa fa-map-marker"></i> Maps</button>
+            <button class="nav-btn" style="font-size: 20px;"><i class="fa fa-shield"></i> Public Safety</button>
+            <button class="nav-btn" style="font-size: 20px;"><i class="fa fa-id-card"></i> Permits & Licenses</button>
+        </div>
+</div>

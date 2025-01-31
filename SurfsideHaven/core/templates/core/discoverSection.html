@@ -1,0 +1,51 @@
+{% load static %}
+<style>
+    .discover-container {
+        margin-top: 100px; /* Increased top margin to create separation */
+        padding-top: 100px; /* Additional padding if needed */
+        position: relative; /* Ensures it's properly placed */
+        z-index: 2; /* Ensures it's above background layers */
+    }
+</style>
+
+<h2 style="font-family: 'Arial', sans-serif; color: #296f92; font-size: 46px; position: relative; left: 20px; top: 40px; margin-bottom: 75px; margin-left: 100px; z-index: 2;">
+    Discover Surfside Haven
+</h2>
+<section class="discover-container" style="margin-bottom: 80px;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- First Card -->
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'imgs/bigrock.jpg' %}" class="card-img-top" alt="Placeholder Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Explore the Coastline</h5>
+                        <p class="card-text">Discover breathtaking coastal views, hiking trails, and scenic routes throughout Surfside Haven. There is always something to explore!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Card -->
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'imgs/bigrock.jpg' %}" class="card-img-top" alt="Placeholder Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Local Events & Festivals</h5>
+                        <p class="card-text">Enjoy year-round community events, music festivals, and local gatherings that bring Surfside Haven to life. Experience the culture!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Card -->
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <img src="{% static 'imgs/bigrock.jpg' %}" class="card-img-top" alt="Placeholder Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Outdoor Adventures</h5>
+                        <p class="card-text">From kayaking to surfing, explore a variety of outdoor activities that make Surfside Haven a paradise for adventurers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

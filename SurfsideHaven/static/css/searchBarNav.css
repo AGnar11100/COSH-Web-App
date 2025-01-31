@@ -1,0 +1,91 @@
+.search-bar {
+    position: fixed;
+    width: 50%; /* Width of the search bar, adjustable */
+    padding: 10px;
+    font-size: 16px; /* Adjustable based on your preference */
+    border: 2px solid #ccc; /* Style for the search bar border */
+    border-radius: 5px; /* Rounded corners for the search bar */
+    background: white; /* Ensures readability over the image */
+    z-index: 1; /* Ensures the search bar is above the image */
+}
+
+
+@media (max-width: 720px) {
+    .search-bar {
+        position: fixed; /* Keeps the search bar fixed */
+        top: 0; /* Snaps the search bar to the top of the viewport */
+        left: 50%; /* Center the search bar horizontally */
+        transform: translateX(-50%); /* Adjust horizontal positioning to be truly centered */
+        width: 100%; /* Expand the search bar to full width of the viewport */
+    }
+}
+
+
+
+
+
+.search-bar {
+    position: absolute;
+    top: 35%; /* Adjust as per your layout */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    padding: 10px;
+    width: 500px; /* Adjust as needed */
+    border: none;
+    border-radius: 5px;
+    font-size: 22px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.20), 0 6px 20px rgba(0,0,0,0.40); /* Dual-layer shadow for depth */
+}
+
+
+.custom-nav {
+    position: absolute;
+    bottom: 0%; 
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background: rgba(58, 57, 57, 0.5); /* Semi-transparent gray background */
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
+}
+
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative; /* Required for positioning the color bar */
+    overflow: hidden; /* Ensures the color bar does not extend outside the button */
+    padding: 10px 20px; /* Adjusted padding for better spacing */
+    border-radius: 5px; /* Rounded corners for a softer look */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+}
+
+
+.nav-btn:hover {
+    background-color: #808080; /* Solid gray on hover */
+    color: white; /* Maintains white text on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.20), 0 6px 20px rgba(0,0,0,0.40);
+}
+
+
+.nav-btn:hover::after {
+    content: ''; /* Necessary for creating a pseudo-element */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; /* Height of the color bar */
+    background-color: #FFDF00; /* Bright yellow color bar */
+    transition: background-color 0.3s; /* Smooth transition for color bar */
+}
+
+
+.nav-btn i {
+    margin-right: 5px; /* Space between icon and text */
+}

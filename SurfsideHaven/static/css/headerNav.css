@@ -1,0 +1,120 @@
+.header {
+    position: relative; /* Needed for positioning children absolutely */
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between; /* Distributes space */
+    align-items: center; /* Aligns items vertically */
+    background-color: #185c79; /* Background color */
+}
+
+.header nav {
+    margin-left: auto; /* Pushes the nav to the right */
+    /* background-color: #20526c;  */
+}
+
+.navbar {
+    list-style: none; /* Removes bullets */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Aligns children (li) in a row */
+    align-items: center; /* Center items vertically */
+    z-index: 2; /* Ensures nav items are clickable and on top */
+    width: 100%; /* Ensures nav occupies the full width of its parent */
+}
+
+
+.nav-item {
+    margin-right: 20px; /* Space between menu items */
+    color: #fff;
+}
+
+.nav-link {
+    color: white; /* Ensures link color is white */
+    padding: 10px; /* Consistent padding with other nav links */
+    text-decoration: none; /* Removes underline from links */
+    display: inline-block; /* Ensures proper spacing */
+    font-size: 16px; /* Larger text for better readability */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff; /* Ensures nav link colors are consistently white */
+}
+
+.navbar-dark .navbar-nav .nav-link.dropdown-toggle::after {
+    display: none;
+}
+
+.bg-lighter-blue {
+    background-color: #246581; /* Example of a slightly lighter blue than #20526c */
+}
+
+
+.collapse.navbar-collapse {
+    justify-content: flex-end; /* Pushes all content to the right */
+    margin-right: 10%; /* Adjust this value to decrease or increase how far right items go */
+}
+
+
+.navbar-nav {
+    width: 80%; /* Adjust this to control how much of the navbar width the items should take up */
+    justify-content: right; /* This will center the items within the space defined by width */
+}
+
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: flex-start; /* Aligns items to the start on smaller screens */
+    }
+    .header img {
+        margin-bottom: 0px; /* Space between logo and nav on smaller screens */
+    }
+    .header nav {
+        margin-left: 0; /* Adjust margin for smaller screens */
+    }
+    .nav-item {
+        margin-right: 10px; /* Less space between items on smaller screens */
+    }
+}
+
+
+.dropdown-menu {
+    background-color: #20526c; /* Dark blue background for dropdowns */
+    border: none; /* No borders for dropdowns */
+}
+
+
+.dropdown-item {
+    color: white; /* White text for dropdown items */
+    padding: 10px; /* Padding for dropdown items */
+}
+
+
+.dropdown-item:hover {
+    background-color: #497288; /* Lighter blue background on hover */
+}
+
+
+.dropdown-menu .container {
+    width: auto; /* Auto width based on content */
+    padding: 20px; /* Padding around the grid */
+}
+
+
+@media (min-width: 992px) {
+    .dropdown-menu {
+        min-width: 900px; /* Larger dropdown for larger screens */
+    }
+}
+
+.header-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Makes the logo span the full width */
+    height: auto;
+    z-index: -1; /* Ensures it does not overlap interactive elements */
+}
+
+
+
+

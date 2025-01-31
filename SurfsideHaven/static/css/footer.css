@@ -1,0 +1,35 @@
+.footer {
+    background-color: white;
+    color: #296f92;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    width: 100%;
+    position: relative; /* Change from fixed to relative */
+    bottom: 0;
+}
+
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-info p {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.credits {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #296f92;
+}

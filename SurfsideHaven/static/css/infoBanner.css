@@ -1,0 +1,9 @@
+.info-banner {
+    background-color: #e8d07a; /* Updated color */
+    color: black; /* White text color */
+    padding: 20px; /* Padding for spacing inside the banner */
+    font-size: 24px; /* Larger font size for readability */
+    text-align: center; /* Center-align the text */
+    justify-content: space-between; /* Space between text and button */
+    align-items: center; /* Vertically align items */
+}
