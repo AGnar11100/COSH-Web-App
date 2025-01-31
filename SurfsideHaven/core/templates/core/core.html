@@ -1,0 +1,376 @@
+{% load static %}
+<style>
+    .search-container {
+        background-image: url("{% static 'imgs/bigrock.jpg' %}");
+        position: relative;
+        width: 100vw; /* Ensures it spans the full width of the viewport exactly */
+        height: 625px; /* Adjustable based on your preference */
+        display: flex;
+        align-items: center; /* Center the content vertically */
+        justify-content: center; /* Center the content horizontally */
+        overflow: hidden; /* Ensures nothing leaks outside the div */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat; /* This should prevent repeating */
+        margin: 0; /* Removes any default margins */
+        padding: 0; /* Removes any default padding */
+    }
+
+    .calendar-container {
+        background-image: url("{% static 'imgs/channel.jpg' %}");
+        position: relative;
+        width: 100vw; /* Ensures it spans the full width of the viewport exactly */
+        height: 540px; /* Adjustable based on your preference */
+        overflow: hidden; /* Ensures nothing leaks outside the div */
+        background-repeat: no-repeat; /* This should prevent repeating */
+        background-size: cover;
+        background-position: center; /* Center the image in both directions */
+        background-attachment: fixed;
+        align-items: center; /* Center the content vertically */
+        justify-content: center; /* Center the content horizontally */
+        background-size: cover;
+    }
+
+    .calendar-container::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4); /* Adjust the last value (0.4) for transparency */
+        z-index: 0;
+    }
+
+    .calendar-card-container {
+        display: flex;
+        justify-content: center;  /* Center cards horizontally */
+        align-items: flex-start;  /* Align to the top */
+        flex-wrap: wrap;  /* Allow wrapping to new row if needed */
+        gap: 15px;  /* Add spacing between cards */
+        z-index: 2;  /* Ensure cards are above background */
+        position: relative;  /* Ensure they don't overlap improperly */
+        margin-top: 20px;  /* Space below header */
+    }
+
+    .calendar-card {
+        background-color: #f8f5e1;  /* Light beige */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        width: 20vw;  /* Makes card responsive */
+        min-width: 220px;  /* Ensures minimum size */
+        max-width: 300px;  /* Limits max size */
+        height: 220px;  /* Fixed height */
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        z-index: 3;  /* Ensure it's on top of background */
+        position: relative;  /* Prevents z-index issues */
+    }
+
+    .calendar-card-title {
+        font-size: 1.2rem;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #686565;
+        margin-bottom: 8px; /* Reduce spacing between title and date */
+        margin-top: 17px;
+    }
+
+    .calendar-card-date {
+        background-color: #e5c36a;  /* Gold */
+        padding: 8px 0;
+        font-size: 1.2rem;
+        color: black;
+        display: block;
+        width: 85%; /* Ensures it spans most of the width */
+        max-width: 95%; /* Limits stretching */
+        margin: 0 auto 8px; /* Reduce spacing between date and time */
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .calendar-card-time {
+        font-size: 1rem;
+        color: #444;
+        margin-top: 5px;
+    }
+
+    /* Ensure enough spacing at bottom of section */
+    .calendar-container {
+        padding-bottom: 50px;
+    }
+
+    /* Fix button position */
+    .learn-more-button {
+        display: block;
+        text-align: justify;
+    }
+
+    .discover-container {
+        margin-top: 100px; /* Increased top margin to create separation */
+        padding-top: 100px; /* Additional padding if needed */
+        position: relative; /* Ensures it's properly placed */
+        z-index: 2; /* Ensures it's above background layers */
+    }
+
+</style>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>City of Surfside Haven</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/core.css' %}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/> -->
+    
+</head>
+
+<body>
+  <div class="header" style="height: 35px;">
+    <img src="{% static 'imgs/surfsidehaventransparent.png' %}" alt="Your Image", class="overlay-image img">
+    <nav>
+        <ul class="navbar">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Translate</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Pay Online</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">All Meetings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Jobs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Surfside Haven Wharf</a>
+            </li>
+            <li class="nav-item" style="margin-right: 160px;">
+              <a class="nav-link" href="#">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-lighter-blue">
+  <div class="container-fluid bg-lighter-blue" style="height: 100px;">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 22px;margin-right: 60px;margin-top: 25px;">
+              Services
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+              <li><a class="dropdown-item" href="#">Animal Services</a></li>
+              <li><a class="dropdown-item" href="#">Code Compliance</a></li>
+              <li><a class="dropdown-item" href="#">Environmental Compliance</a></li>
+              <!-- Add more items here -->
+          </ul>
+          </li>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="communityDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 22px;margin-right: 60px;margin-top: 25px;">
+              Community
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="communityDropdown">
+              <li><a class="dropdown-item" href="#">Education</a></li>
+              <li><a class="dropdown-item" href="#">Emergency Management</a></li>
+              <li><a class="dropdown-item" href="#">eNotifications</a></li>
+              <!-- Add more items here -->
+          </ul>
+          </li>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="businessDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 22px;margin-right: 60px;margin-top: 25px;">
+              Business
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="businessDropdown">
+              <li><a class="dropdown-item" href="#">Bidding Information</a></li>
+              <li><a class="dropdown-item" href="#">Building Inspection Services</a></li>
+              <li><a class="dropdown-item" href="#">Business License Database</a></li>
+              <!-- Add more items here -->
+          </ul>
+          </li>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="governmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 22px;margin-right: 60px;margin-top: 25px;">
+              Government
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="governmentDropdown">
+              <li><a class="dropdown-item" href="#">City Council</a></li>
+              <li><a class="dropdown-item" href="#">Advisory Bodies</a></li>
+              <li><a class="dropdown-item" href="#">City Calendar</a></li>
+              <!-- Add more items here -->
+          </ul>
+          </li>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="howDoIDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 22px;margin-right: 60px;margin-top: 25px;">
+              How Do I...
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="howDoIDropdown">
+              <li><a class="dropdown-item" href="#">Apply for</a></li>
+              <li><a class="dropdown-item" href="#">Pay</a></li>
+              <li><a class="dropdown-item" href="#">Report</a></li>
+              <!-- Add more items here -->
+          </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+
+
+
+  <div class="search-container">
+    <input type="text" placeholder="Search..." class="search-bar">
+        <div class="custom-nav">
+            <button class="nav-btn" style="font-size: 20px;"><i class="fa fa-dollar"></i> Pay Online</button>
+            <button class="nav-btn" style="font-size: 20px;"><i class="fa fa-tree"></i> Parks &<br>Rec</button>
+            <button class="nav-btn" style="font-size: 20px;"><i class="fa fa-briefcase"></i> Jobs</button>
+            <button class="nav-btn" style="font-size: 20px;"><i class="fa fa-map-marker"></i> Maps</button>
+            <button class="nav-btn" style="font-size: 20px;"><i class="fa fa-shield"></i> Public Safety</button>
+            <button class="nav-btn" style="font-size: 20px;"><i class="fa fa-id-card"></i> Permits & Licenses</button>
+        </div>
+    </div>
+
+    
+    <!-- public announcement banner -->
+    <div class="info-banner" style="height: 300px">
+        <span style="font-weight: bold;font-size: 23px;">Stay updated about the Surfside Haven Municipal Wharf Incident and learn how to support wharf businesses. <a href="url" style="color:#296f92;font-weight: bold;">Learn more</a><a>!</a></span><br><br><br><br><br>
+        <a href="#" class="learn-more-button" style="float: right;font-size: 19px;font-weight: 400;transform: translate(20%, -60%);overflow: hidden;">Learn More</a>
+    </div>
+
+    <h2 style="font-family: 'Arial', sans-serif; color: #296f92; font-size: 46px; position: relative; left: 20px; top: 20px;margin-bottom: 75px;margin-left: 100px;">News</h2><br>
+
+    <section style="margin-top: 200px; margin-bottom: 150px;">
+        <div class="container">
+            <div style="position: absolute; width: 100%; height: 90px;">
+                <img src="{% static 'imgs/sqig.png' %}" alt="Decorative squiggle" style="position: absolute; transform: translate(-65%, -310%) rotate(-7deg); width: 1100px; height: 90px;">
+            </div>            
+            <div class="row">
+                {% for item in newsItems %}
+                <div class="col-md-4">
+                    <a href="#" style="text-decoration:none">
+                        <div href="#" class="card shadow-sm">
+                            <!-- Image at the top of the card, moved the inline styles to the CSS -->
+                            <img src="{{ item.image_url.url }}" class="card-img-top" alt="No Image Found">
+                            <!-- Card Body for Title and Summary -->
+                            <div class="card-body">
+                                <h5 class="card-title">{{ item.title }}</h5>
+                                {% if item.summary %}
+                                <p class="card-text">{{ item.summary }}</p>
+                                {% else %}
+                                <p class="card-text"><br><br>&nbsp;</p> <!-- This is an empty paragraph with a non-breaking space -->
+                                {% endif %}
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="learn-more-button" style="right: 14%; transform: translate(-10%, 40%); z-index: 2;font-size: 19px;font-weight: 400;">See All News</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="calendar-container">
+        <h2 style="font-family: 'Arial', sans-serif; color: #FFFF; font-size: 46px; position: relative; left: 20px; top: 40px; margin-bottom: 75px; margin-left: 100px; z-index: 2;">
+            Meetings & Events
+        </h2>
+        <div class="calendar-card-container">
+            {% for event in calendarEvents|slice:":4" %}
+            <div class="calendar-card">
+                <div class="calendar-card-body">
+                    <h5 class="calendar-card-title">{{ event.title }}</h5>
+                    <span class="calendar-card-date">
+                        {{ event.start_datetime|date:"M j" }}<sup>{{ event.start_datetime|date:"S" }}</sup>
+                    </span>
+                    <p class="calendar-card-time">
+                        {{ event.start_datetime|time:"g:iA" }} - {{ event.end_datetime|time:"g:iA" }}
+                    </p>
+                </div>
+            </div>
+            {% empty %}
+            <p style="color: white; text-align: center;">No upcoming events found.</p>
+            {% endfor %}
+        </div>
+        <a href="#" class="learn-more-button" style="right: 14%; transform: translate(-10%, 40%); z-index: 2;bottom: 15%;font-size: 19px;font-weight: 400;">
+            See More Events
+        </a>
+    </section>
+    
+    <h2 style="font-family: 'Arial', sans-serif; color: #296f92; font-size: 46px; position: relative; left: 20px; top: 40px; margin-bottom: 75px; margin-left: 100px; z-index: 2;">
+        Discover Surfside Haven
+    </h2>
+    <section class="discover-container" style="margin-bottom: 80px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- First Card -->
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <img src="{% static 'imgs/bigrock.jpg' %}" class="card-img-top" alt="Placeholder Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Explore the Coastline</h5>
+                            <p class="card-text">Discover breathtaking coastal views, hiking trails, and scenic routes throughout Surfside Haven. There is always something to explore!</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Second Card -->
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <img src="{% static 'imgs/bigrock.jpg' %}" class="card-img-top" alt="Placeholder Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Local Events & Festivals</h5>
+                            <p class="card-text">Enjoy year-round community events, music festivals, and local gatherings that bring Surfside Haven to life. Experience the culture!</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Third Card -->
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <img src="{% static 'imgs/bigrock.jpg' %}" class="card-img-top" alt="Placeholder Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Outdoor Adventures</h5>
+                            <p class="card-text">From kayaking to surfing, explore a variety of outdoor activities that make Surfside Haven a paradise for adventurers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>CONNECT WITH US</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> 999 Board Street, Surfside Haven, CA 95999</p>
+                <p><i class="fas fa-phone"></i> P: 999-999-9999</p>
+                <p style="text-decoration: none;"><i class="fas fa-envelope"></i> <a href="#" style="text-decoration: none;">Contact Us</a></p>
+            </div>
+            <small class="credits">WEBSITE DESIGN BY Adriel N - Connecting People and Government</small>
+        </div>
+    </footer>
+    
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{% static 'js/footer.js' %}"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
+</body>
+</html>

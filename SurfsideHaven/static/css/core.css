@@ -1,0 +1,430 @@
+.header {
+    position: relative; /* Needed for absolute positioning of the child */
+    background-color: #20526c; /* Dark blue background */
+    color: white;
+    padding: 0px 0px; /* Reduced padding */
+    display: flex; /* Flex display for inline alignment of children */
+    align-items: center; /* Vertical alignment */
+    text-align: left; /* Aligns text to the left instead of center */
+}
+
+
+.header nav {
+    margin-left: auto; /* Pushes the nav to the right */
+    /* background-color: #20526c;  */
+}
+
+
+.navbar {
+    list-style: none; /* Removes bullets */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Aligns children (li) in a row */
+    align-items: center; /* Center items vertically */
+}
+
+
+.nav-item {
+    margin-right: 20px; /* Space between menu items */
+}
+
+
+.nav-link {
+    color: white; /* Ensures link color is white */
+    padding: 10px; /* Consistent padding with other nav links */
+    text-decoration: none; /* Removes underline from links */
+    display: inline-block; /* Ensures proper spacing */
+    font-size: 16px; /* Larger text for better readability */
+}
+
+
+.footer {
+    background-color: #f2f2f2;
+    color: black;
+    text-align: center;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+
+.content {
+    height: 200px; /* Example height */
+    width: 100%; /* Full width */
+    background-color: #f0f0f0; /* Light grey background */
+}
+
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: flex-start; /* Aligns items to the start on smaller screens */
+    }
+    .header img {
+        margin-bottom: 0px; /* Space between logo and nav on smaller screens */
+    }
+    .header nav {
+        margin-left: 0; /* Adjust margin for smaller screens */
+    }
+    .nav-item {
+        margin-right: 10px; /* Less space between items on smaller screens */
+    }
+}
+
+
+.dropdown-menu {
+    background-color: #20526c; /* Dark blue background for dropdowns */
+    border: none; /* No borders for dropdowns */
+}
+
+
+.dropdown-item {
+    color: white; /* White text for dropdown items */
+    padding: 10px; /* Padding for dropdown items */
+}
+
+
+.dropdown-item:hover {
+    background-color: #497288; /* Lighter blue background on hover */
+}
+
+
+.dropdown-menu .container {
+    width: auto; /* Auto width based on content */
+    padding: 20px; /* Padding around the grid */
+}
+
+
+@media (min-width: 992px) {
+    .dropdown-menu {
+        min-width: 900px; /* Larger dropdown for larger screens */
+    }
+}
+
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff; /* Ensures nav link colors are consistently white */
+}
+
+
+.bg-lighter-blue {
+    background-color: #246581; /* Example of a slightly lighter blue than #20526c */
+}
+
+
+.collapse.navbar-collapse {
+    justify-content: flex-end; /* Pushes all content to the right */
+    margin-right: 10%; /* Adjust this value to decrease or increase how far right items go */
+}
+
+
+.navbar-nav {
+    width: 80%; /* Adjust this to control how much of the navbar width the items should take up */
+    justify-content: right; /* This will center the items within the space defined by width */
+}
+
+
+.header {
+    position: relative; /* Needed for positioning children absolutely */
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between; /* Distributes space */
+    align-items: center; /* Aligns items vertically */
+    background-color: #185c79; /* Background color */
+}
+
+
+.header-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Makes the logo span the full width */
+    height: auto;
+    z-index: -1; /* Ensures it does not overlap interactive elements */
+}
+
+
+.navbar {
+    z-index: 2; /* Ensures nav items are clickable and on top */
+    width: 100%; /* Ensures nav occupies the full width of its parent */
+}
+
+
+.container {
+    position: relative; /* Needed to position the image absolutely */
+}
+
+
+img {
+    position: absolute; /* Keeps the image overlaying other elements if necessary */
+    top: 0; /* Adjust this value to better position the image */
+    float: left; /* Starts at 10% from the left; adjust as necessary */
+    height: 135px; /* Fixed height */
+    width: auto; /* Maintain aspect ratio */
+    z-index: 10; /* Keeps it above other content */
+}
+
+
+@media (max-width: 720px) {
+    img {
+        display: none; /* Hides the image on small screens */
+    }
+}
+
+
+@media (max-width: 720px) {
+    img {
+        left: 5%; /* Adjusts left position to prevent overlapping */
+        height: 100px; /* Adjusts height to scale down the image */
+    }
+}
+
+
+.search-bar {
+    position: fixed;
+    width: 50%; /* Width of the search bar, adjustable */
+    padding: 10px;
+    font-size: 16px; /* Adjustable based on your preference */
+    border: 2px solid #ccc; /* Style for the search bar border */
+    border-radius: 5px; /* Rounded corners for the search bar */
+    background: white; /* Ensures readability over the image */
+    z-index: 1; /* Ensures the search bar is above the image */
+}
+
+
+@media (max-width: 720px) {
+    .search-bar {
+        position: fixed; /* Keeps the search bar fixed */
+        top: 0; /* Snaps the search bar to the top of the viewport */
+        left: 50%; /* Center the search bar horizontally */
+        transform: translateX(-50%); /* Adjust horizontal positioning to be truly centered */
+        width: 100%; /* Expand the search bar to full width of the viewport */
+    }
+}
+
+
+.navbar-dark .navbar-nav .nav-link.dropdown-toggle::after {
+    display: none;
+}
+
+
+.search-bar {
+    position: absolute;
+    top: 35%; /* Adjust as per your layout */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    padding: 10px;
+    width: 500px; /* Adjust as needed */
+    border: none;
+    border-radius: 5px;
+    font-size: 22px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.20), 0 6px 20px rgba(0,0,0,0.40); /* Dual-layer shadow for depth */
+}
+
+
+.custom-nav {
+    position: absolute;
+    bottom: 0%; 
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background: rgba(58, 57, 57, 0.5); /* Semi-transparent gray background */
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
+}
+
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative; /* Required for positioning the color bar */
+    overflow: hidden; /* Ensures the color bar does not extend outside the button */
+    padding: 10px 20px; /* Adjusted padding for better spacing */
+    border-radius: 5px; /* Rounded corners for a softer look */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+}
+
+
+.nav-btn:hover {
+    background-color: #808080; /* Solid gray on hover */
+    color: white; /* Maintains white text on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.20), 0 6px 20px rgba(0,0,0,0.40);
+}
+
+
+.nav-btn:hover::after {
+    content: ''; /* Necessary for creating a pseudo-element */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; /* Height of the color bar */
+    background-color: #FFDF00; /* Bright yellow color bar */
+    transition: background-color 0.3s; /* Smooth transition for color bar */
+}
+
+
+.nav-btn i {
+    margin-right: 5px; /* Space between icon and text */
+}
+
+
+.fa-dollar:before {
+    content: "\f155";
+}
+
+
+.fa-tree:before {
+    content: "\f1bb";
+}
+
+
+.fa-briefcase:before {
+    content: "\f0b1";
+}
+
+
+.fa-map-marker:before {
+    content: "\f041";
+}
+
+
+.fa-shield:before {
+    content: "\f132";
+}
+
+
+.fa-id-card:before {
+    content: "\f2c2";
+}
+
+.info-banner {
+    background-color: #e8d07a; /* Updated color */
+    color: black; /* White text color */
+    padding: 20px; /* Padding for spacing inside the banner */
+    font-size: 24px; /* Larger font size for readability */
+    text-align: center; /* Center-align the text */
+    justify-content: space-between; /* Space between text and button */
+    align-items: center; /* Vertically align items */
+}
+
+.learn-more-button {
+    background-color: #296f92; /* Blue background for the button */
+    color: white; /* White text color */
+    padding: 20px 100px; /* Increased padding to make the button bigger */
+    text-decoration: none; /* No underline */
+    border: none; /* No border */
+    cursor: pointer; /* Cursor pointer for button */
+    border-radius: 5px; /* Rounded corners for the button */
+    position: absolute; /* Position absolute to place it exactly where needed */
+    right: 17%; /* Positioning to the right (adjust percentage as needed) */
+}
+
+.learn-more-button:hover {
+    text-decoration: underline; /* Darker blue on hover */
+}
+
+.card {
+    position: relative;
+    transform: translate(10%, -20%);
+}
+
+.card-img-top {
+    top: -150px; /* Adjusts the position of the image */
+    height: 300px;
+    z-index: 0; /* Keeps the image behind the text */
+}
+
+.card-body {
+    position: relative; /* Ensures content in the card body appears above the image */
+    background-color: white; /* Optional: Ensures text background is solid for readability */
+    z-index: 1; /* Ensures the card body content appears above the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for better separation */
+}
+
+.card-title {
+    color: white; /* White text for visibility */
+    padding: 8px; /* Padding around the text */
+    margin-bottom: 16px; /* Space below the title */
+    border-radius: 4px; /* Rounded corners for the title background */
+}
+
+.card-text {
+    color: #333; /* Dark color for text to improve readability */
+}
+
+.card-body:hover::after {
+    content: ''; /* Necessary for creating a pseudo-element */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; /* Height of the color bar */
+    background-color: #FFDF00; /* Bright yellow color bar */
+    transition: background-color 0.3s; /* Smooth transition for color bar */
+}
+
+
+.footer {
+    background-color: white;
+    color: #296f92;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    width: 100%;
+    position: relative; /* Change from fixed to relative */
+    bottom: 0;
+}
+
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.social-icons {
+    margin: 10px 0;
+}
+
+.social-icons a {
+    margin: 0 8px;
+    font-size: 20px;
+    color: #296f92;
+    text-decoration: none;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-info p {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.credits {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #296f92;
+}
+
+/* Ensures the footer is pushed down if content is too short */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1; /* Pushes the footer down */
+}
