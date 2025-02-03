@@ -1,12 +1,10 @@
 {% load static %}
-
 <style>
     .calendar-container {
         background-image: url("{% static 'imgs/channel.jpg' %}");
         position: relative;
         width: 100vw; /* Ensures it spans the full width of the viewport exactly */
-        height: 540px; /* Adjustable based on your preference */
-        overflow: hidden; /* Ensures nothing leaks outside the div */
+        height: 610px; /* Adjustable based on your preference */
         background-repeat: no-repeat; /* This should prevent repeating */
         background-size: cover;
         background-position: center; /* Center the image in both directions */
@@ -81,10 +79,24 @@
         margin-top: 5px;
     }
 
-    /* Ensure enough spacing at bottom of section */
-    .calendar-container {
-        padding-bottom: 50px;
+
+    .hide {
+        display: block;
     }
+
+    @media screen and (max-width: 1100px) {
+        .hide {
+            display: block;
+        }
+    }
+
+    @media screen and (max-width: 1000px) {
+        .hide {
+            display: none;
+        }
+    }
+
+
 </style>
 
 <section class="calendar-container">
@@ -109,8 +121,8 @@
         <p style="color: white; text-align: center;">No upcoming events found.</p>
         {% endfor %}
     </div>
-
-    <a href="#" class="learn-more-button" style="right: 14%; transform: translate(-10%, 40%); z-index: 2;bottom: 15%;font-size: 19px;font-weight: 400;">
-        See More Events
-    </a>
 </section>
+
+<a href="#" class="learn-more-button hide" style="right: 14%;text-align: center; font-size: 30px;">
+    See More Events
+</a>

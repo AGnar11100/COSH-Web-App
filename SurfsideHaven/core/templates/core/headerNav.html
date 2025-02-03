@@ -12,6 +12,7 @@
   /* Default state where the image is visible */
   .phantom {
       display: block; /* Ensures the image is visible by default */
+      position: sticky;
   }
 
   /* Hide the image when the screen width is less than or equal to 1700px */
@@ -24,8 +25,12 @@
   @media screen and (max-width: 985px) and (min-width: 0px) {
       .phantom {
           display: block;
+          position: relative;
+          margin:-32vw;
       }
   }
+
+  
 </style>
 
 

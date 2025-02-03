@@ -2,20 +2,6 @@
     position: relative; /* Needed to position the image absolutely */
 }
 
-
-.learn-more-button {
-    background-color: #296f92; /* Blue background for the button */
-    color: white; /* White text color */
-    padding: 20px 100px; /* Increased padding to make the button bigger */
-    text-decoration: none; /* No underline */
-    border: none; /* No border */
-    cursor: pointer; /* Cursor pointer for button */
-    border-radius: 5px; /* Rounded corners for the button */
-    position: absolute; /* Position absolute to place it exactly where needed */
-    right: 17%; /* Positioning to the right (adjust percentage as needed) */
-}
-
-
 .learn-more-button:hover {
     text-decoration: underline; /* Darker blue on hover */
 }
@@ -39,3 +25,5 @@ main {
     width: 100%; /* Full width */
     background-color: #f0f0f0; /* Light grey background */
 }
+
+
