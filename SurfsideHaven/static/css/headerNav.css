@@ -35,6 +35,8 @@
     font-size: 16px; /* Larger text for better readability */
 }
 
+
+
 .navbar-dark .navbar-nav .nav-link {
     color: #fff; /* Ensures nav link colors are consistently white */
 }
@@ -54,10 +56,7 @@
 }
 
 
-.navbar-nav {
-    width: 80%; /* Adjust this to control how much of the navbar width the items should take up */
-    justify-content: right; /* This will center the items within the space defined by width */
-}
+
 
 
 @media (max-width: 768px) {
@@ -100,9 +99,9 @@
 }
 
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
     .dropdown-menu {
-        min-width: 900px; /* Larger dropdown for larger screens */
+        min-width: 768px; /* Larger dropdown for larger screens */
     }
 }
 
@@ -113,6 +112,58 @@
     width: 100%; /* Makes the logo span the full width */
     height: auto;
     z-index: -1; /* Ensures it does not overlap interactive elements */
+}
+
+.header {
+    position: relative; /* Needed for absolute positioning of the logo */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #185c79; /* Adjust to match your color scheme */
+    padding: 0 20px; /* Adds padding on both sides */
+}
+
+
+.navbar {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    width: 100%; /* Full width to accommodate all items */
+    padding-left: 0; /* Removes padding that could offset alignment */
+}
+
+.nav-item, li {
+    margin-right: 20px; /* Consistent spacing between items */
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px; /* Adjust to fit your design */
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+    }
+
+    .header-logo {
+        position: static; /* Logo repositions normally in mobile view */
+        width: 100%; /* Full width on mobile */
+    }
+}
+
+
+@media (max-width: 768px) {
+    .navbar {
+        justify-content: flex-end; /* This moves all nav items to the right */
+    }
+    .navbar-toggler {
+        order: 1; /* This ensures the nav button is on the right */
+    }
+    .navbar-nav {
+        order: 2; /* This keeps the nav items to the left of the toggle button */
+    }
 }
 
 

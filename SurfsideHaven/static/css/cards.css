@@ -1,12 +1,18 @@
 .card {
     position: relative;
     transform: translate(10%, -20%);
+    height: 500px; /* Set a fixed height or adjust according to your design needs */
+    overflow: hidden; /* Hides any content that exceeds the card height */
+    display: flex;
+    flex-direction: column;
 }
 
 .card-img-top {
     top: -150px; /* Adjusts the position of the image */
-    height: 300px;
+    height: 300px; /* Ensure your image fits within the fixed card height */
     z-index: 0; /* Keeps the image behind the text */
+    width: 100%; /* Ensures the image covers the card width */
+    object-fit: cover; /* Ensures the image covers the space without distorting */
 }
 
 .card-body {
@@ -14,6 +20,9 @@
     background-color: white; /* Optional: Ensures text background is solid for readability */
     z-index: 1; /* Ensures the card body content appears above the image */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for better separation */
+    flex-grow: 1; /* Allows the card body to fill available space */
+    display: flex;
+    flex-direction: column;
 }
 
 .card-title {
@@ -25,6 +34,8 @@
 
 .card-text {
     color: #333; /* Dark color for text to improve readability */
+    flex-grow: 1; /* Allows the text to expand and fill the body */
+    overflow-y: auto; /* Enables scrolling for text if it exceeds the card body space */
 }
 
 .card-body:hover::after {

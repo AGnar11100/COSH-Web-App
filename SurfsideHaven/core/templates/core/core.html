@@ -1,31 +1,31 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>City of Surfside Haven</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/core.css' %}"/>
-    <link rel="stylesheet" href="{% static 'css/footer.css' %}"/>
-    <link rel="stylesheet" href="{% static 'css/headerNav.css' %}"/>
-    <link rel="stylesheet" href="{% static 'css/searchBarNav.css' %}"/>
-    <link rel="stylesheet" href="{% static 'css/cards.css' %}"/>
-    <link rel="stylesheet" href="{% static 'css/infoBanner.css' %}"/>
-    <link rel="stylesheet" href="{% static 'css/general.css' %}"/> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">    
-</head>
+    <head>
+        <title>City of Surfside Haven</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/core.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/footer.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/headerNav.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/searchBarNav.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/cards.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/infoBanner.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/general.css' %}"/> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">    
+    </head>
 
-<body>
-    {% include 'core/headerNav.html' %}
-    {% include 'core/searchBar.html' %}
-    {% include 'core/infoBanner.html' %}
-    {% include 'core/newsSection.html' %}
-    {% include 'core/calendarSection.html' %}
-    {% include 'core/discoverSection.html' %}
-    {% include 'core/footer.html' %}   
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="{% static 'js/footer.js' %}"></script>
-</body>
+    <body>
+        {% include 'core/headerNav.html' %}
+        {% include 'core/searchBar.html' %}
+        {% include 'core/infoBanner.html' %}
+        {% include 'core/newsSection.html' %}
+        {% include 'core/calendarSection.html' %}
+        {% include 'core/discoverSection.html' %}
+        {% include 'core/footer.html' %}   
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="{% static 'js/footer.js' %}"></script>
+    </body>
 </html>

@@ -3,25 +3,6 @@
 }
 
 
-img {
-    position: absolute; /* Keeps the image overlaying other elements if necessary */
-    top: 0; /* Adjust this value to better position the image */
-    float: left; /* Starts at 10% from the left; adjust as necessary */
-    height: 135px; /* Fixed height */
-    width: auto; /* Maintain aspect ratio */
-    z-index: 10; /* Keeps it above other content */
-}
-
-
-@media (max-width: 720px) {
-    img {
-        display: none; /* Hides the image on small screens */
-        left: 5%; /* Adjusts left position to prevent overlapping */
-        height: 100px; /* Adjusts height to scale down the image */
-    }
-}
-
-
 .learn-more-button {
     background-color: #296f92; /* Blue background for the button */
     color: white; /* White text color */
