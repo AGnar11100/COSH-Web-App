@@ -1,10 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.utils import timezone
 from .models import NewsItem, Event
 from .weather.key import apiKey
 import requests
 import numpy as np
-
 
 def convert_temp_and_get_icon_url(weather_data):
     temp_kelvin = weather_data['main']['temp']
@@ -15,9 +14,11 @@ def convert_temp_and_get_icon_url(weather_data):
     return np.ceil(temp_fahrenheit).astype(int), icon_url
 
 def home(request):
-    # Fetch news items and calendar events
-    newsItems = NewsItem.objects.all()
-    calendarEvents = Event.objects.all().order_by('start_datetime')
+    # Get today's date and time
+    now = timezone.now()
+
+    # Fetch calendar events that start today or later
+    calendarEvents = Event.objects.filter(start_datetime__gte=now).order_by('start_datetime')
 
     # Fetch weather data
     city = "Santa Cruz"
@@ -38,7 +39,7 @@ def home(request):
 
     # Pass all data to the template
     context = {
-        'newsItems': newsItems,
+        'newsItems': NewsItem.objects.all(),  # unchanged, all news items are fetched
         'calendarEvents': calendarEvents,
         'weather': weather
     }

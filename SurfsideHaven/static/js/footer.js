@@ -1,3 +1,4 @@
+// Keeps footer at the bottom of the page
 document.addEventListener("DOMContentLoaded", function () {
     const footer = document.querySelector("footer");
     const body = document.body;

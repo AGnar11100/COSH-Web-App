@@ -21,7 +21,7 @@ main {
 
 
 .content {
-    height: 200px; /* Example height */
+    height: 200px;
     width: 100%; /* Full width */
     background-color: #f0f0f0; /* Light grey background */
 }
