@@ -30,17 +30,22 @@ See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-t)=jzwu5lfnnyeszg=0o0tc-t2al!t14per0(d9t1cw7a=w%9$"
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+SECRET_KEY = os.getenv('COSH_DJANGO_SECRET_HERO') # For production
+# SECRET_KEY = os.getenv('SECRET_KEY', 'Uncomment for local development only') # For development
 
-ALLOWED_HOSTS = []
+
+DEBUG = os.getenv('COSH_DEBUG_HERO', 'False') == 'True' # For production 
+# DEBUG = True # For development
+
+
+# Heroku app path
+ALLOWED_HOSTS = ['surfsidehaven.herokuapp.com']
 
 # Application definition(s)
 INSTALLED_APPS = [
@@ -63,6 +68,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "SurfsideHaven.urls"
@@ -86,18 +92,26 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "SurfsideHaven.wsgi.application"
 
+# use for development
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         # db name
+#         "NAME": "surfsidehavendb",
+#         # user that created the db
+#         "USER": 'postgres',
+#         "PASSWORD": "cos",
+#         "HOST": "localhost",
+#         "PORT" : "5433"
+#     }
+# }
 
+# use for production
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        # db name
-        "NAME": "surfsidehavendb",
-        # user that created the db
-        "USER": 'postgres',
-        "PASSWORD": "cos",
-        "HOST": "localhost",
-        "PORT" : "5433"
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
+        conn_max_age=600  # This optional argument sets the lifetime of a database connection in seconds.
+    )
 }
 
 
@@ -125,17 +139,14 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# static data that is used for the construction of the website
+# collectstatic will scoop these up when the app is being deployed 
 STATIC_URL = "static/"
+
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
+    BASE_DIR / 'static',] # Static files
 
-
-# for images that are uploaded by admins
 MEDIA_URL = 'imgs/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'adminUploadedContent')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'adminUploadedContent') # Media files
 
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

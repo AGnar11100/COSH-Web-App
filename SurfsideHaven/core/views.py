@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.utils import timezone
 from .models import NewsItem, Event
-from .weather.key import apiKey
+# from .weather.key import apiKey # For development only
 import requests
 import numpy as np
+import os
 
 def convert_temp_and_get_icon_url(weather_data):
     temp_kelvin = weather_data['main']['temp']
@@ -24,7 +25,7 @@ def home(request):
     city = "Santa Cruz"
     state = "CA"
     country = "US"
-    url = f'https://api.openweathermap.org/data/2.5/weather?q={city},{state},{country}&appid={apiKey}'
+    url = f'https://api.openweathermap.org/data/2.5/weather?q={city},{state},{country}&appid={os.getenv("COSH_WEATHER_API_HERO")}'
     
     response = requests.get(url)
     if response.status_code == 200:
